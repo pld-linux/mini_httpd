@@ -34,7 +34,7 @@ Prosty i ma³y serwer HTTP ze wsparciem dla SSL.
 	BINDIR=%{_bindir} \
 	MANDIR=%{_mandir} \
 	CFLAGS="-DUSE_SSL -DUSE_IPV6 -I%{_includedir}/openssl \
-		%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
+		%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
