@@ -1,6 +1,3 @@
-# TODO:
-# - polish description and summary at package htpasswd
-#
 Summary:	Small, simple HTTP daemon, supports SSL
 Summary(pl):	Ma³y, prosty serwer HTTP ze wsparciem dla SSL
 Name:		mini_httpd
@@ -8,11 +5,11 @@ Version:	1.19
 Release:	3.1
 License:	freely distributable
 Group:		Networking/Daemons
-URL:		http://www.acme.com/software/mini_httpd/
-Source0:	http://www.acme.com/software/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://www.acme.com/software/mini_httpd/%{name}-%{version}.tar.gz
 # Source0-md5:	792a529dfe974355aad8ba6c80e54e7a
 Source1:	%{name}.init
 Source2:	%{name}.config
+URL:		http://www.acme.com/software/mini_httpd/
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	sed
 PreReq:		rc-scripts
@@ -30,16 +27,23 @@ Simple and small HTTP daemon supporting SSL.
 Prosty i ma³y serwer HTTP ze wsparciem dla SSL.
 
 %package -n htpasswd-%{name}
-Summary:        mini_httpd htpasswd utility
-Group:          Networking/Utilities
-Provides:       htpasswd
-Obsoletes:      htpasswd
+Summary:	mini_httpd htpasswd utility
+Summary(pl):	Narzêdzie htpasswd z mini_httpd
+Group:		Networking/Utilities
+Provides:	htpasswd
+Obsoletes:	htpasswd
 
 %description -n htpasswd-%{name}
-htpasswd from mini_httpd
+htpasswd is used to create and update the flat-files used to store
+usernames and password for basic authentication of HTTP users. This
+package contains htpasswd from mini_httpd; it supports only CRYPT
+encryption algorithm.
 
-Usage: htpasswd [-c] passwordfile username
-The -c flag creates a new file.
+%description -n htpasswd-%{name}
+htpasswd s³u¿y do tworzenia i uaktualniania p³askich plików s³u¿±cych
+do przechowywania nazw u¿ytkowników i hase³ do uwierzytelnienia basic
+u¿ytkowników HTTP. Ten pakiet zawiera htpasswd z mini_httpd; ta wersja
+obs³uguje wy³±cznie has³a zaszyfrowane przez CRYPT.
 
 %prep
 %setup -q
@@ -57,7 +61,6 @@ The -c flag creates a new file.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir}}
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,8}
