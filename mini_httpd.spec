@@ -1,5 +1,5 @@
-Summary:	Small, simple http daemon, supports SSL
-Summary(pl):	Ma³y, prosty serwer http ze wsparciem dla SSL
+Summary:	Small, simple HTTP daemon, supports SSL
+Summary(pl):	Ma³y, prosty serwer HTTP ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.19
 Release:	2
