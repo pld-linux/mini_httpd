@@ -9,7 +9,7 @@ URL:		http://www.acme.com/software/mini_httpd/
 Source0:	http://www.acme.com/software/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Prereq:		/sbin/chkconfig
-BuildRequires:	openssl-devel
+BuildRequires:	openssl-devel >= 0.9.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
