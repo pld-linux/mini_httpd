@@ -7,6 +7,7 @@ License:	freely distributable
 Group:		Networking/Daemons
 URL:		http://www.acme.com/software/mini_httpd/
 Source0:	http://www.acme.com/software/%{name}-%{version}.tar.gz
+# Source0-md5:	884c9bdf220af5e8ef4ff4877ef07150
 Source1:	%{name}.init
 Prereq:		/sbin/chkconfig
 BuildRequires:	openssl-devel >= 0.9.7
