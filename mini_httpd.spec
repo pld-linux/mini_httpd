@@ -5,8 +5,6 @@ Version:	1.14
 Release:	1
 License:	Freely Redistributable
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 URL:		http://www.acme.com/software/mini_httpd/
 Source0:	http://www.acme.com/software/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
