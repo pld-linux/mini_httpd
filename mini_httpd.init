@@ -16,29 +16,40 @@
 # Get service config
 [ -f /etc/sysconfig/mini_mini_httpd ] && . /etc/sysconfig/mini_httpd
 
+# Check that networking is up
+if is_yes "${NETWORKING}"; then
+	if [ ! -f /var/lock/subsys/network ]; then
+		msg_network_down mini_httpd
+		exit 1
+	fi
+else
+	exit 0
+fi
+
+
 # See how we were called.
 case "$1" in
   start)
 	# Check if the service is already running?
-        if [ ! -f /var/lock/subsys/mini_httpd ]; then
+	if [ ! -f /var/lock/subsys/mini_httpd ]; then
 		msg_starting mini_httpd
 		daemon mini_httpd $HTTPD_OPTS
-	        RETVAL=$?
+		RETVAL=$?
     		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/mini_httpd
 	else
-        	msg_Already_Running mini_httpd
-	        exit 1
+		msg_already_running mini_httpd
+		exit 1
 	fi
 	;;
   stop)
-        # Stop daemons.
+	# Stop daemons.
 	if [ -f /var/lock/subsys/mini_httpd ]; then
-                msg_stopping mini_httpd
-                killproc mini_httpd
-                rm -f /var/lock/subsys/mini_httpd /var/run/httpd.pid /var/run/httpd.loc* >/dev/null 2>&1
-        else
-		msg_Not_Running mini_httpd
-	        exit 1
+		msg_stopping mini_httpd
+		killproc mini_httpd
+		rm -f /var/lock/subsys/mini_httpd /var/run/httpd.pid /var/run/httpd.loc* >/dev/null 2>&1
+	else
+		msg_not_running mini_httpd
+		exit 1
 	fi
 	;;
   status)
@@ -50,7 +61,7 @@ case "$1" in
 	$0 start
 	;;
   *)
-	msg_Usage "$0 {start|stop|restart|status}"
+	msg_usage "$0 {start|stop|restart|reload|status}"
 	exit 1
 	;;
 esac
