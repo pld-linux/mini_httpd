@@ -5,7 +5,7 @@ Summary:	Small, simple HTTP daemon, supports SSL
 Summary(pl):	Ma³y, prosty serwer HTTP ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.19
-Release:	3
+Release:	3.1
 License:	freely distributable
 Group:		Networking/Daemons
 URL:		http://www.acme.com/software/mini_httpd/
@@ -33,9 +33,7 @@ Prosty i ma³y serwer HTTP ze wsparciem dla SSL.
 Summary:        mini_httpd htpasswd utility
 Group:          Networking/Utilities
 Provides:       htpasswd
-Obsoletes:      htpasswd-apache1
-Obsoletes:      htpasswd-apache
-Obsoletes:	htpasswd-thttpd
+Obsoletes:      htpasswd
 
 %description -n htpasswd-%{name}
 htpasswd from mini_httpd
