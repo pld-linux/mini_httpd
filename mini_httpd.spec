@@ -75,5 +75,5 @@ fi
 %dir %{httpdir}
 %dir %{htmldir}
 %{htmldir}/index.html
-%attr(0755,root,root) /etc/rc.d/init.d/mini_httpd
+%attr(754,root,root) /etc/rc.d/init.d/mini_httpd
 %{_mandir}/man*/*
