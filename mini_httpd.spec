@@ -36,7 +36,7 @@ Prosty i ma³y serwer HTTP ze wsparciem dla SSL.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
+install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir}}
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,5,8}
 install -d $RPM_BUILD_ROOT/home/httpd/html
@@ -47,7 +47,7 @@ install *.1		$RPM_BUILD_ROOT%{_mandir}/man1
 install *.8		$RPM_BUILD_ROOT%{_mandir}/man8
 
 install index.html	$RPM_BUILD_ROOT/home/httpd/html
-install %{SOURCE1}	$RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
+install %{SOURCE1}	$RPM_BUILD_ROOT//etc/rc.d/init.d/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -58,7 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %preun
 if [ "$1" = "0" ]; then
-	%{_sysconfdir}/rc.d/init.d/%{name} stop
+	/etc/rc.d/init.d/%{name} stop
 	/sbin/chkconfig --del %{name}
 fi
 
