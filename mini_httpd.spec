@@ -3,7 +3,7 @@ Summary(pl):	ma³y, prosty serwer http ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.14
 Release:	1
-License:	Freely Redistributable
+License:	Freely distributable
 Group:		Networking/Daemons
 URL:		http://www.acme.com/software/mini_httpd/
 Source0:	http://www.acme.com/software/%{name}-%{version}.tar.gz
