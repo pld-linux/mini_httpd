@@ -14,7 +14,7 @@
 . /etc/sysconfig/network
 
 # Get service config
-[ -f /etc/sysconfig/mini_mini_httpd ] && . /etc/sysconfig/mini_httpd
+[ -f /etc/sysconfig/mini_httpd ] && . /etc/sysconfig/mini_httpd
 
 # Check that networking is up
 if is_yes "${NETWORKING}"; then
