@@ -34,7 +34,7 @@ Summary:        mini_httpd htpasswd utility
 Group:          Networking/Utilities
 Provides:       htpasswd
 Obsoletes:      htpasswd-apache1
-Obsoletes:      htpasswd-apache2
+Obsoletes:      htpasswd-apache
 Obsoletes:	htpasswd-thttpd
 
 %description -n htpasswd-%{name}
