@@ -54,10 +54,12 @@ install %{SOURCE1}	$RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
 gzip -9nf README
 
 %post
-%chkconfig_add
+/sbin/chkconfig %{name} reset
+/sbin/chkconfig --add %{name}
 
 %preun
-%chkconfig_del
+%{_sysconfdir}/rc.d/init.d/%{name} stop
+/sbin/chkconfig --del %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
