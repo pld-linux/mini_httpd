@@ -11,7 +11,6 @@ Source1:	%{name}.init
 Source2:	%{name}.config
 URL:		http://www.acme.com/software/mini_httpd/
 BuildRequires:	openssl-devel >= 0.9.7d
-BuildRequires:	sed
 PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 Requires:	htpasswd
