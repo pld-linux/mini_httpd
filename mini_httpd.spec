@@ -2,8 +2,8 @@ Summary:	small, simple http daemon, supports SSL
 Summary(pl):	ma³y, prosty serwer http ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.14
-Release:	1
-License:	Freely distributable
+Release:	2
+License:	freely distributable
 Group:		Networking/Daemons
 URL:		http://www.acme.com/software/mini_httpd/
 Source0:	http://www.acme.com/software/%{name}-%{version}.tar.gz
@@ -49,8 +49,6 @@ install *.8		$RPM_BUILD_ROOT%{_mandir}/man8
 install index.html	$RPM_BUILD_ROOT/home/httpd/html
 install %{SOURCE1}	$RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
 
-gzip -9nf README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -66,7 +64,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
 /home/httpd/html/index.html
