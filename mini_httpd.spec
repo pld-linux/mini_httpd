@@ -2,7 +2,7 @@ Summary:	Small, simple http daemon, supports SSL
 Summary(pl):	Ma³y, prosty serwer http ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.19
-Release:	1
+Release:	2
 License:	freely distributable
 Group:		Networking/Daemons
 URL:		http://www.acme.com/software/mini_httpd/
@@ -49,8 +49,8 @@ install -d $RPM_BUILD_ROOT%{htmldir}
 install -d $RPM_BUILD_ROOT/etc/sysconfig
 
 install mini_httpd	$RPM_BUILD_ROOT%{_sbindir}
-install	htpasswd	$RPM_BUILD_ROOT%{_bindir}/mini-htpasswd
-install htpasswd.1	$RPM_BUILD_ROOT%{_mandir}/man1/mini-htpasswd.1
+install htpasswd	$RPM_BUILD_ROOT%{_bindir}/mini_htpasswd
+install htpasswd.1	$RPM_BUILD_ROOT%{_mandir}/man1/mini_htpasswd.1
 install *.8		$RPM_BUILD_ROOT%{_mandir}/man8
 
 install index.html	$RPM_BUILD_ROOT%{htmldir}
