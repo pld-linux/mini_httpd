@@ -3,7 +3,7 @@ Summary(pl):	ma³y, prosty serwer http ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.14
 Release:	1
-Copyright:	Freely Redistributable
+License:	Freely Redistributable
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
@@ -53,16 +53,18 @@ install %{SOURCE1}	$RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
 
 gzip -9nf README
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 /sbin/chkconfig %{name} reset
 /sbin/chkconfig --add %{name}
 
 %preun
-%{_sysconfdir}/rc.d/init.d/%{name} stop
-/sbin/chkconfig --del %{name}
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+if [ "$1" = "0" ]; then
+	%{_sysconfdir}/rc.d/init.d/%{name} stop
+	/sbin/chkconfig --del %{name}
+fi
 
 %files
 %defattr(644,root,root,755)
