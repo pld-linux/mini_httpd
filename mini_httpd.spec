@@ -33,8 +33,7 @@ Prosty i ma³y serwer HTTP ze wsparciem dla SSL.
 	IPV6_DEFS='-DUSE_IPV6' \
 	BINDIR=%{_bindir} \
 	MANDIR=%{_mandir} \
-	CFLAGS="-DUSE_SSL -DUSE_IPV6 -I%{_includedir}/openssl \
-		%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+	CFLAGS="-DUSE_SSL -DUSE_IPV6 -I%{_includedir}/openssl %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -52,7 +51,7 @@ install *.8		$RPM_BUILD_ROOT%{_mandir}/man8
 install index.html	$RPM_BUILD_ROOT/home/httpd/html
 install %{SOURCE1}	$RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
 
-gzip -9nf		README
+gzip -9nf README
 
 %post
 /sbin/chkconfig %{name} reset
