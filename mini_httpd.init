@@ -33,7 +33,7 @@ case "$1" in
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/mini_httpd ]; then
 		msg_starting mini_httpd
-		daemon mini_httpd $HTTPD_OPTS
+		daemon mini_httpd -i /var/run/mini_httpd.pid $HTTPD_OPTS
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/mini_httpd
 	else
@@ -45,7 +45,7 @@ case "$1" in
 	if [ -f /var/lock/subsys/mini_httpd ]; then
 		msg_stopping mini_httpd
 		killproc mini_httpd
-		rm -f /var/lock/subsys/mini_httpd /var/run/httpd.pid /var/run/httpd.loc* >/dev/null 2>&1
+		rm -f /var/lock/subsys/mini_httpd /var/run/mini_httpd.pid /var/run/mini_httpd.loc* >/dev/null 2>&1
 	else
 		msg_not_running mini_httpd
 	fi
