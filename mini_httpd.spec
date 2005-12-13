@@ -11,9 +11,9 @@ Source1:	%{name}.init
 Source2:	%{name}.config
 URL:		http://www.acme.com/software/mini_httpd/
 BuildRequires:	openssl-devel >= 0.9.7d
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 Requires:	htpasswd
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		httpdir		/home/services/httpd
@@ -98,11 +98,11 @@ fi
 %dir %{htmldir}
 %{htmldir}/index.html
 %attr(754,root,root) /etc/rc.d/init.d/mini_httpd
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/%{name}
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/%{name}
 %{_mandir}/man8/*
 
 %files -n htpasswd-%{name}
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/htpasswd
-%{_sbindir}/htpasswd
+%attr(755,root,root) %{_sbindir}/htpasswd
 %{_mandir}/man1/htpasswd.1*
