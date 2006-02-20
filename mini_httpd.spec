@@ -2,7 +2,7 @@ Summary:	Small, simple HTTP daemon, supports SSL
 Summary(pl):	Ma³y, prosty serwer HTTP ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.19
-Release:	3.1
+Release:	4
 License:	freely distributable
 Group:		Networking/Daemons
 Source0:	http://www.acme.com/software/mini_httpd/%{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ Source1:	%{name}.init
 Source2:	%{name}.config
 URL:		http://www.acme.com/software/mini_httpd/
 BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
 Requires:	htpasswd
 Requires:	rc-scripts
@@ -83,10 +84,11 @@ rm -rf $RPM_BUILD_ROOT
 %post
 /sbin/chkconfig %{name} reset
 /sbin/chkconfig --add %{name}
+%service %{name} restart
 
 %preun
 if [ "$1" = "0" ]; then
-	/etc/rc.d/init.d/%{name} stop
+	%service %{name} stop
 	/sbin/chkconfig --del %{name}
 fi
 
