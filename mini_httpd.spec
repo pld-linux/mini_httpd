@@ -39,7 +39,7 @@ usernames and password for basic authentication of HTTP users. This
 package contains htpasswd from mini_httpd; it supports only CRYPT
 encryption algorithm.
 
-%description -n htpasswd-%{name}
+%description -n htpasswd-%{name} -l pl
 htpasswd s³u¿y do tworzenia i uaktualniania p³askich plików s³u¿±cych
 do przechowywania nazw u¿ytkowników i hase³ do uwierzytelnienia basic
 u¿ytkowników HTTP. Ten pakiet zawiera htpasswd z mini_httpd; ta wersja
