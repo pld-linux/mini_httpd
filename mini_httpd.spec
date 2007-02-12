@@ -1,5 +1,5 @@
 Summary:	Small, simple HTTP daemon, supports SSL
-Summary(pl):	Ma≥y, prosty serwer HTTP ze wsparciem dla SSL
+Summary(pl.UTF-8):   Ma≈Çy, prosty serwer HTTP ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.19
 Release:	4
@@ -23,12 +23,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Simple and small HTTP daemon supporting SSL.
 
-%description -l pl
-Prosty i ma≥y serwer HTTP ze wsparciem dla SSL.
+%description -l pl.UTF-8
+Prosty i ma≈Çy serwer HTTP ze wsparciem dla SSL.
 
 %package -n htpasswd-%{name}
 Summary:	mini_httpd htpasswd utility
-Summary(pl):	NarzÍdzie htpasswd z mini_httpd
+Summary(pl.UTF-8):   Narzƒôdzie htpasswd z mini_httpd
 Group:		Networking/Utilities
 Provides:	htpasswd
 Obsoletes:	htpasswd
@@ -39,11 +39,11 @@ usernames and password for basic authentication of HTTP users. This
 package contains htpasswd from mini_httpd; it supports only CRYPT
 encryption algorithm.
 
-%description -n htpasswd-%{name} -l pl
-htpasswd s≥uøy do tworzenia i uaktualniania p≥askich plikÛw s≥uø±cych
-do przechowywania nazw uøytkownikÛw i hase≥ do uwierzytelnienia basic
-uøytkownikÛw HTTP. Ten pakiet zawiera htpasswd z mini_httpd; ta wersja
-obs≥uguje wy≥±cznie has≥a zaszyfrowane przez CRYPT.
+%description -n htpasswd-%{name} -l pl.UTF-8
+htpasswd s≈Çu≈ºy do tworzenia i uaktualniania p≈Çaskich plik√≥w s≈Çu≈ºƒÖcych
+do przechowywania nazw u≈ºytkownik√≥w i hase≈Ç do uwierzytelnienia basic
+u≈ºytkownik√≥w HTTP. Ten pakiet zawiera htpasswd z mini_httpd; ta wersja
+obs≈Çuguje wy≈ÇƒÖcznie has≈Ça zaszyfrowane przez CRYPT.
 
 %prep
 %setup -q
