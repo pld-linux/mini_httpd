@@ -1,5 +1,5 @@
 Summary:	Small, simple HTTP daemon, supports SSL
-Summary(pl.UTF-8):   Mały, prosty serwer HTTP ze wsparciem dla SSL
+Summary(pl.UTF-8):	Mały, prosty serwer HTTP ze wsparciem dla SSL
 Name:		mini_httpd
 Version:	1.19
 Release:	4
@@ -28,7 +28,7 @@ Prosty i mały serwer HTTP ze wsparciem dla SSL.
 
 %package -n htpasswd-%{name}
 Summary:	mini_httpd htpasswd utility
-Summary(pl.UTF-8):   Narzędzie htpasswd z mini_httpd
+Summary(pl.UTF-8):	Narzędzie htpasswd z mini_httpd
 Group:		Networking/Utilities
 Provides:	htpasswd
 Obsoletes:	htpasswd
